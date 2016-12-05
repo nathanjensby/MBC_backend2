@@ -13,7 +13,14 @@ class RecipesController < ApplicationController
     render json: @recipe
   end
 
-  
+  # GET /recipes/:id/items
+
+  def items
+    @items = Item.includes(:measurements).where(measurements: { recipe_id: params[:id] })
+
+    render json: @items
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe

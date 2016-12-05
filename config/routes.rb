@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :recipes
+  resources :recipes do
+    member do
+      get 'items'
+    end
+  end
   resources :items do
     member do
       get 'recipes'
