@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
 # GET /items/:id/recipes
 
   def recipes
-    @recipes = Recipe.includes(:measurements).where(measurements: { item_id: params[:id] })
+    @recipes = Recipe.includes(:measurements).where(measurements: { item_id: params[:id].split('+') })
 
     render json: @recipes
   end
