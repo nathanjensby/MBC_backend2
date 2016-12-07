@@ -18,10 +18,10 @@ class ItemsController < ApplicationController
   def recipes
     @recipes = Recipe.includes(:measurements).where(measurements: { item_id: params[:id].split(',') })
 
-    # render json: @recipes
-    respond_to do |format|
-    format.json { render json: @recipes.to_json(:include => :measurements) }
-    end
+    render json: @recipes
+    # respond_to do |format|
+    # format.json { render json: @recipes.to_json(:include => :measurements) }
+    # end
   end
 
   private
