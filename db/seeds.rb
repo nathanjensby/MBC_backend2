@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Recipe.destroy_all
 Item.destroy_all
 Measurement.destroy_all
+Recipe.destroy_all
+
 
 #Recipes
 
