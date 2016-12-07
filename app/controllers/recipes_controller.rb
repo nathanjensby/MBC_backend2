@@ -5,9 +5,10 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
 
-    render json: @recipes
+    respond_to do |format|
+    format.json { render json: @recipes.to_json(:include => :measurements) }
+    end
   end
-
   # GET /recipes/1
   def show
     render json: @recipe

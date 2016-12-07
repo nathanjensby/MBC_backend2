@@ -7,7 +7,7 @@ class MeasurementsController < ApplicationController
 
     render json: @measurements
   end
-
+  
   # GET /measurements/1
   def show
     render json: @measurement
