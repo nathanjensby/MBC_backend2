@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     member do
       get 'items'
     end
+    member do
+      get 'measurements'
+    end
   end
   resources :items do
     member do

@@ -5,21 +5,31 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
 
-    respond_to do |format|
-    format.json { render json: @recipes.to_json(:include => :measurements) }
-    end
+    render json: @recipes.as_json(include:[ :measurements, :items])
+    # respond_to do |format|
+    # format.html
+    # format.json { render :json => @recipes.to_json(include: [:measurements, :items]) }
+    # end
   end
   # GET /recipes/1
   def show
-    render json: @recipe
+    render json: @recipe.as_json(include:[ :measurements, :items])
   end
 
   # GET /recipes/:id/items
 
   def items
-    @items = Item.includes(:measurements).where(measurements: { recipe_id: params[:id].split(',') })
+    @items = Item.includes(:measurements).where(measurements: { recipe_id: params[:id]})
 
     render json: @items
+  end
+
+  # GET /recipes/:id/measurements
+
+  def measurements
+    @measurements = Measurement.where(measurements: { recipe_id: params[:id]})
+
+    render json: @measurements
   end
 
   private
