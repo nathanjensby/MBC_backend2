@@ -16,7 +16,9 @@ class ItemsController < ApplicationController
 # GET /items/:id/recipes
 
   def recipes
-    @recipes = Recipe.includes(:measurements).where(measurements: { item_id: params[:id].split(',') })
+    # @recipes = Recipe.includes(:measurements).where(measurements: { item_id: params[:id].split(',') })
+
+    @recipes = Recipe.joins(:measurements).where(measurements: {item_id: params[:id].split(',')}).group('recipes.id').having('count(item_id) > 2')
 
     render json: @recipes
     # respond_to do |format|
