@@ -12,6 +12,41 @@ Recipe.destroy_all
 
 #Recipes
 
+pal = Recpie.create({
+  name: "Paloma",
+  instructions: "Combine tequila, grapefruit juice, lime juice, and agave nectar into a cocktail shaker with ice. Shake well. Strain into a glass over ice. Top with soda water. Garnish with lime wedge."
+  })
+
+w_russ = Recipe.create({
+  name: "White Russian",
+  instructions: "Fill a rocks glass with ice cubes. Add Kahlúa and Vodka, finish up with a cream layer."
+  })
+
+b_russ = Recipe.create({
+  name: "Black Russian",
+  instructions: "Fill a rocks glass with ice. Add the booze, mix and enjoy your very own Black Russian."
+  })
+
+r_sunset = Recipe.create({
+  name: "Rum Sunset",
+  instructions: "Combine orange juice and rum. Set aside 1/3 of the mixture. Pour 2/3 of the orange juice mixture into 2 ice-filled glasses. Set aside. Mix reserved orange juice and rum with 2 tbsp. grenadine. Slowly pour into each glass so it settles on the bottom, creating an ombré effect. Garnish with lime wedges."
+  })
+
+c_martini = Recipe.create({
+  name: "Chicago Martini",
+  instructions: "Stir vodka and olive juice. Pour over a coupe. Garnish with olives."
+  })
+
+gimlet = Recipe.create({
+  name: "Vodka Gimlet",
+  instructions: "Shake vodka, lime juice, and simple syrup. Pour over a coupe and garnish with lime wedge."
+  })
+
+rooftop_lemonade = Recipe.create({
+  name: "Rooftop Lemonade",
+  instructions: "Shake vodka and lemonade. Toss with cucumber slices. Pour into a Collins glass and garnish with lemon wedges."
+  })
+
 brown_derby = Recipe.create({
   name: "Brown Derby",
   instructions: "Mix bourbon, juice, and honey mixture in a shaker with ice; shake to chill. Strain into champagne coupe."
@@ -95,6 +130,7 @@ camp = Item.create(name:"Campari")
 
 gm = Item.create(name:"Grand Marnier orange liqueur")
 gc = Item.create(name:"Green Chartreuse")
+kah = Item.create(name: "Kahlua")
 
 gf = Item.create(name:"Grapefruit juice")
 honey = Item.create(name: "Honey")
@@ -112,10 +148,168 @@ m_cherry = Item.create(name: "Maraschino cherry")
 mint = Item.create(name: "Mint leaves")
 sugar = Item.create(name: "Sugar")
 seltz = Item.create(name: "Seltzer water")
+soda = Item.create(name: "Soda water")
 o_p = Item.create(name: "Orange peel")
+o_j = Item.create(name: "Orange juice")
 cola = Item.create(name: "Cola")
+lemonade = Item.create(name: "Lemonade")
+cuc = Item.create(name: "Cucumber")
+olives = Item.create(name: "Olives")
+ol_juice = Item.create(name: "Olive juice")
+gren = Item.create(name: "Grenadine")
+h_cream = Item.create(name: "Heavy cream")
 
 #Measurements
+
+m73 = Measurement.new
+m73.amount = "1.5 oz"
+m73.item_id = t.id
+m73.recipe_id = pal.id
+m73.save
+
+m72 = Measurement.new
+m72.amount = "1 oz"
+m72.item_id = gf.id
+m72.recipe_id = pal.id
+m72.save
+
+m71 = Measurement.new
+m71.amount = ".5 oz"
+m71.item_id = lime_j.id
+m71.recipe_id = pal.id
+m71.save
+
+m70 = Measurement.new
+m70.amount = ".5 oz"
+m70.item_id = agav.id
+m70.recipe_id = pal.id
+m70.save
+
+m69 = Measurement.new
+m69.amount = "Top with"
+m69.item_id = soda.id
+m69.recipe_id = pal.id
+m69.save
+
+m68 = Measurement.new
+m68.amount = "1"
+m68.item_id = lime_w.id
+m68.recipe_id = pal.id
+m68.save
+
+m67 = Measurement.new
+m67.amount = "1 oz"
+m67.item_id = h_cream.id
+m67.recipe_id = w_russ.id
+m67.save
+
+m66 = Measurement.new
+m66.amount = "2 oz"
+m66.item_id = v.id
+m66.recipe_id = w_russ.id
+m66.save
+
+m65 = Measurement.new
+m65.amount = "1 oz"
+m65.item_id = kah.id
+m65.recipe_id = w_russ.id
+m65.save
+
+m64 = Measurement.new
+m64.amount = "1 oz"
+m64.item_id = kah.id
+m64.recipe_id = b_russ.id
+m64.save
+
+m63 = Measurement.new
+m63.amount = "2 oz"
+m63.item_id = v.id
+m63.recipe_id = b_russ.id
+m63.save
+
+m62 = Measurement.new
+m62.amount = "2 tbsp."
+m62.item_id = gren.id
+m62.recipe_id = r_sunset.id
+m62.save
+
+m61 = Measurement.new
+m61.amount = "3 oz"
+m61.item_id = l_rum.id
+m61.recipe_id = r_sunset.id
+m61.save
+
+m60 = Measurement.new
+m60.amount = "12 oz"
+m60.item_id = o_j.id
+m60.recipe_id = r_sunset.id
+m60.save
+
+m59 = Measurement.new
+m59.amount = "2"
+m59.item_id = lime_w.id
+m59.recipe_id = r_sunset.id
+m59.save
+
+m58 = Measurement.new
+m58.amount = "3"
+m58.item_id = olives.id
+m58.recipe_id = c_martini.id
+m58.save
+
+m57 = Measurement.new
+m57.amount = ".5 oz"
+m57.item_id = ol_juice.id
+m57.recipe_id = c_martini.id
+m57.save
+
+m56 = Measurement.new
+m56.amount = "3 oz"
+m56.item_id = v.id
+m56.recipe_id = c_martini.id
+m56.save
+
+m55 = Measurement.new
+m55.amount = "1"
+m55.item_id = lime_w.id
+m55.recipe_id = gimlet.id
+m55.save
+
+m54 = Measurement.new
+m54.amount = ".5 oz"
+m54.item_id = ss.id
+m54.recipe_id = gimlet.id
+m54.save
+
+m53 = Measurement.new
+m53.amount = "1 oz"
+m53.item_id = lime_j.id
+m53.recipe_id = gimlet.id
+m53.save
+
+m52 = Measurement.new
+m52.amount = "2 oz"
+m52.item_id = v.id
+m52.recipe_id = gimlet.id
+m52.save
+
+m51 = Measurement.new
+m51.amount = "3 slices"
+m51.item_id = cuc.id
+m51.recipe_id = rooftop_lemonade.id
+m51.save
+
+m50 = Measurement.new
+m50.amount = "3 oz"
+m50.item_id = lemonade.id
+m50.recipe_id = rooftop_lemoade.id
+m50.save
+
+m49 = Measurement.new
+m49.amount = "2 oz"
+m49.item_id = v.id
+m49.recipe_id = rooftop_lemonade.id
+m49.save
 
 m = Measurement.new
 m.amount = "1.5 tsp"
