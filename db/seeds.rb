@@ -302,7 +302,7 @@ m51.save
 m50 = Measurement.new
 m50.amount = "3 oz"
 m50.item_id = lemonade.id
-m50.recipe_id = rooftop_lemoade.id
+m50.recipe_id = rooftop_lemonade.id
 m50.save
 
 m49 = Measurement.new
