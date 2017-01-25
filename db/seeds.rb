@@ -12,7 +12,7 @@ Recipe.destroy_all
 
 #Recipes
 
-pal = Recpie.create({
+pal = Recipe.create({
   name: "Paloma",
   instructions: "Combine tequila, grapefruit juice, lime juice, and agave nectar into a cocktail shaker with ice. Shake well. Strain into a glass over ice. Top with soda water. Garnish with lime wedge."
   })
